@@ -1,0 +1,68 @@
+Fancybox 5 and TypeScipt
+
+Fancybox 5 uses TypeScript, unlike its earlier versions that use JQuery. It should be easy to use Fancybox 5 in TypeScript projects. But the docs don't give TypeScript examples (at least at the time of writing). Here is what I found in trying to convert to TypeScript an earlier JavaScript code that utilized Fancybox.  
+
+The task was to initialize Fancybox using TypeScript and get only one copy initialized at a time, thus saving memory and reducing execution time. (This is an example of the Singleton Pattern if you want to be technical about it.)
+
+In plain JavaScript, this is easy to do:
+
+```
+let Fancybox = null;
+async function getSingletonFancybox() {
+  if (!Fancybox) {
+    Fancybox = await getFancybox();
+  }
+  return Fancybox;
+}
+Fancybox = await getSingletonFancybox();
+```
+
+Here is what it took to convert it to TypeScript and why. 
+
+Initially, it was not clear how to type the statement "let Fancybox = null;" Below is an explanation. 
+
+When we `import { Fancybox } from '@fancyapps/ui'`, we import both the class Fancybox and its corresponding type. Under the hood, the class constructor that created the class Fancybox created at the same time a TypeScript interface containing all the instance methods and properties of the class and having the same name. (Ref. https://www.sitepen.com/blog/advanced-typescript-concepts-classes-and-types). This TypeScript interface describes an instance of the class. 
+
+To use the type in subsequent code and avoid naming ambiguity, we can alias it as FancyboxType by writing `import { Fancybox as FancyboxType } from '@fancyapps/ui'`.
+
+Thus, FancyboxType is a type of an instance of a class Fancybox. However, the class Fancybox itself - which is not an instance - does not have the same type. 
+
+Classes are templates for generating objects in JavaScript, and their type is “function”. Example:
+```
+class classType {}
+console.log(typeof classType) // Output: "function"
+```
+
+Therefore, if we know the instance type, we can discover the type of the constructor class using `typeof` (ref.: https://www.typescriptlang.org/docs/handbook/2/typeof-types.html). In our case, this translates to `typeof Fancybox'. And we use it to type our variable. 
+
+Thus the following TypeScript code works:
+
+```
+let Fancybox: typeof FancyboxType | null = null;
+
+async function getSingletonFancybox(): Promise<typeof FancyboxType> {
+  if (!Fancybox) {
+    Fancybox = await getFancybox();
+  }
+  return Fancybox;
+}
+
+Fancybox = await getSingletonFancybox();
+```
+
+Then you can use static methods on this class, such as
+Fancybox.close();
+Fancybox.show();
+
+
+With Fancybox 5, this is all you need. You don't have to instantiate it and can use static methods on the Fancybox class itself. However, if you do want to create an instance, consider the following. 
+
+In the code above Fancybox is a value that a promise resolves to. Until the promise has resolved, you cannot create new instances. So if you wanted to instantiate Fancybox, you would have to resolve a promise, for example, in an async function like this: 
+
+async function createModal() {
+  Fancybox = await getSingletonFancybox();
+  const myModal: FancyboxType = new Fancybox();
+}
+
+Hope this has been helpful. 
+
