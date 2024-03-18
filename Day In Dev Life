@@ -11,20 +11,18 @@
 
 👨‍💻 A day in the Life of a Developer 👩‍💻
 
-Today's adventure: squash a bug 🐛💥
-
-Started out with tiny fix-up to do on an old website and run into a wild bug: some of desktop menu items refused to show their pages! 🤔 Mobile menu? No problemo! 📱 Desktop menu - problemo! 🕵️‍♀️
+Started out with a tiny fix-up to do on a legacy website and run into a wild bug🐛: some of desktop menu items refused to show their pages! 🤔 Mobile menu? No problemo! 📱 Desktop menu - problemo! 🕵️‍♀️
 
 First stop: Admin panel. 🛠️ Oh, desktop menu is missing some of the hrefs that the mobile menu has. Let's put them in. All good now? No sir! 😅
 
-Next up: diving into the code. Oh, the main menu template has an `if` statement: if an item has a submenu, this item does not get an `<a href>` tag. Is it supposed to be like this? Evidently not. Added those bad boys in. 💻 Easy fix, or so I thought. 😬
+Next up: diving into the code. Oh, the main menu template says `if` an item has children `then` this item does not get an `<a href>` tag. Is it supposed to be like this? Evidently not. Added those bad boys in. 💻 Easy fix, or so I thought. 😬
 
 The correct hrefs are now in place! But... click on them - nothing happens. Why? 😱 
 
-Turns out, a legacy beast (jQuery) overrides the clicks! 🤦‍♀️ Do I want to mess with this legacy code? Care to wake the dragon? 🐉
+Turns out, the old jQuery code overrides the clicks! 🤦‍♀️ Do I want to mess with this legacy beast? Care to wake the dragon? 🐉
 
 Is there a way around? Let's see if we can restructure the HTML. Does not work the first time... but works the second time! Tested and retested across desktop and mobile—voilà, it works like a charm! 🎩✨
 
-Remember R. Martin quoting his boss in Clean Code: "Bugs aren't 'interesting.' They just have to be fixed." Well, some bugs do have a hint of intrigue, but shh, don't tell the boss! 😉🤫
+Thinking of R. Martin quoting his boss in Clean Coder book: "Bugs aren't 'interesting.' They just have to be fixed." Well, some bugs do have a hint of intrigue, but shh, don't tell the boss! 😉🤫
 
 #DeveloperLife #BugBattles #LegacyCodeAdventures 
