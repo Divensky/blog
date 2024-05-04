@@ -20,7 +20,7 @@ Pros of using AI to code for you:
 * Faster, short-term 
 * It often incorporates best practices
 
-Pros of using AI: 
+Cons of using AI: 
 
 * Copy-paste does not give you learning experience
 * Slower, long-term: you ask AI again and again about the same thing
@@ -34,12 +34,19 @@ When you get up after having spent some time coding or learning to code, ask you
 Try to add one certainty per a period of doing. You will see your certainties building up. 
 
 * Don't ask AI to give you the code. Ask it to explain. 
-* Identify what you're missing to execute the coding task at hand. Ask AI to help you fill in that missing piece - not code. 
-* Never cut-and-paste. If AI gave you some code and you decided to use it, TYPE it all. You know why? Your fingers learn to think, too :) Kidding. As you're typing, it's your chance to spot things you don't really know. And you get used to executing concepts in code. 
-* Before you ask a Q of an AI, ask yourself: how would I do it? Write down your draft. Then ask AI and compare it to your draft. Maybe it confirms you were right. Maybe it helps you learn the applicable best practices.
-* Before you ask a Q of a senior dev, ask it of AI. 
+Identify what you're missing to execute the coding task at hand. Ask AI to help you fill in that missing piece - not code. 
+* Never cut-and-paste. If AI gave you some code and you decided to use it, TYPE it all. 
+You know why? Your fingers learn to think, too :) Kidding. As you're typing, it's your chance to spot things you don't really know. And you get used to executing concepts in code. 
+* Before you ask a Q of an AI, ask yourself: how would I do it? 
+Write down your draft. Then ask AI and compare it to your draft. Maybe it confirms you were right. Maybe it helps you learn the applicable best practices.
+* Before asking AI for a solution, draft a solution of your own. Then you compare your own and that provided by AI and learn from it. 
+- Before asking AI about an error, **read** the error message. If you don't understand any word or phrase or term in it, find an explanation. Achieve certainty on this term, then come back to the error message.
+A good programmer can read error messages and at once understand the meaning and the cause of error. 
+* Before you ask a Q of a senior dev, ask it of AI. Don't ask a more senior dev before you've made SURE that AI cannot answer this Q. 
 * Use "regenerate" button liberaly. It can help: (1) rephrase the answer so you get another take on it; (2) spot an erroneous first answer. Then the 2nd and subsequent answers recommend something else than the first, beware. Likely there is no correct way or AI does not know it. 
 * To get relevant answers, specify your language/framework in your Qs to AI. 
+* In important questions where you're not an expert, double-check the solutions provided by AI. Google search or a different AI model, or at least "regenerate." 
+* If AI gives you a tool you're not familiar with, take the time to read the official documentation of the tool. Official docs give more context and are more reliable than AI answers. All good programmers can and do read documentation. 
 
 [“It's better to ask a stupid question than to make a stupid assumption.”](https://www.goodreads.com/quotes/11681730-it-s-better-to-ask-a-stupid-question-than-to-make)
 Or 
